@@ -1,0 +1,387 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Specer Template">
+    <meta name="keywords" content="Specer, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SEES Sports</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Section Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <i class="fa fa-close"></i>
+        </div>
+        <ul class="main-menu mobile-menu">
+            <li class="active"><a href="{% url 'frontend:index' %}">Home</a></li>
+            <li><a href="{% url 'frontend:schedule' %}">Schedule</a></li>
+            <li><a href="{% url 'frontend:result' %}">Results</a></li>
+            <li><a href="#">Fantasy</a></li>
+        </ul>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+    <!-- Offcanvas Menu Section End -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="header__top">
+            <div class="container">
+            </div>
+        </div>
+        <div class="header__nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                            <a href="{% url 'frontend:index' %}"><img src="{% static 'img/logo.png' %}" height="50px" width="50px" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="nav-menu">
+                            <ul class="main-menu">
+                                <li class="active"><a href="{% url 'frontend:index' %}">Home</a></li>
+                                <li><a href="{% url 'frontend:schedule' %}">Fixtures</a></li>
+                                <li><a href="{% url 'frontend:result' %}">Results</a></li>
+                                <li><a href="#">Fantasy</a></li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas-open">
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero-section set-bg" data-setbg="{% static 'img/hero/hero-1.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hs-item">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="hs-text">
+                                        
+                                        <h2>SEES Football League</h2>
+                                        <h5 style="color: white; font-size: large;">University of Lagos</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Trending News Section Begin -->
+  
+    <!-- Trending News Section End -->
+
+    <!-- Match Section Begin -->
+    <!-- Match Section End -->
+
+
+    <!-- Latest Section Begin -->
+    <section class="latest-section mt-5">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h3>Team <span>Standings</span></h3>
+                    </div>
+                    <div class="points-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="th-o">Pos</th>
+                                    <th>Team</th>
+                                    <th class="th-o">W</th>
+                                    <th class="th-o">L</th>
+                                    <th class="th-o">GF</th>
+                                    <th class="th-o">GA</th>
+                                    <th class="th-o">PTS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 mt-3">
+                            <div class="section-title">
+                                <h3>Highest <span>Goalscorer</span></h3>
+                            </div>
+                            <div class="points-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="th-o">Pos</th>
+                                            <th>Name</th>
+                                            <th class="th-o">Team</th>
+                                            <th class="th-o">Goals</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-2">
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="team-name">
+                                                <span>-</span>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="team-name">
+                                                <span>-</span>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td class="team-name">
+                                                <span>-</span>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td class="team-name">
+                                                <span>-</span>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td class="team-name">
+                                                <span>-</span>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-3">
+                            <div class="section-title">
+                                <h3>Highest <span>Assist</span></h3>
+                            </div>
+                            <div class="points-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="th-o">Pos</th>
+                                            <th>Name</th>
+                                            <th class="th-o">Team</th>
+                                            <th class="th-o">Assists</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-3">
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="team-name">
+                                                <span>-</span>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="team-name">
+                                                <span>-</span>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td class="team-name">
+                                                <span>-</span>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td class="team-name">
+                                                <span>-</span>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td class="team-name">
+                                                <span>-</span>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest Section End -->
+
+    <!-- Video Section Begin -->
+    <!-- Video Section End -->
+
+    <!-- Popular News Section Begin -->
+   
+    <!-- Footer Section Begin -->
+    <footer class="footer-section set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="fs-logo">
+                        
+                        <ul>
+                            <li>Developers</li>
+                            <li><i class="fa fa-thumb-tack"></i>Akinwa Olamilekan</li>
+                            <li><i class="fa fa-thumb-tack"></i>Ugwu Hillary</li>
+                            <li><i class="fa fa-thumb-tack"></i>Kaduru Nathan</li>
+                        </ul>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+     
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        async function Table(){
+            let url = "{% url 'league:standing' %}"
+            const response = await fetch(url)
+            let data = response.json()
+            data.then((data) => {
+                let innerHTML = ""
+                data.forEach((i, idx) => {
+                    innerHTML += `
+                    <tr>
+                        <td>${idx+1}</td>
+                        <td class="team-name">
+                            <span>${i.name}</span>
+                        </td>
+                        <td>${i.wins}</td>
+                        <td>${i.losses}</td>
+                        <td>${i.gf}</td>
+                        <td>${i.ga}</td>
+                        <td>${i.total_points}</td>
+                    </tr>
+                    `
+                });
+                document.getElementById("table").innerHTML = innerHTML
+            })
+        }
+        async function highestGoals(){
+            let url = "{% url 'league:goalscorer' %}"
+            const response = await fetch(url)
+            let data = response.json()
+            data.then((data) => {
+                let innerHTML = ""
+                data.forEach((i, idx) => {
+                    if (i.total_goal_scored === 0){
+                        return
+                    }
+                    else{
+                        innerHTML += `
+                            <tr>
+                                <td>${idx+1}</td>
+                                <td class="team-name">
+                                    <span>${i.name}</span>
+                                </td>
+                                <td>${i.team}</td>
+                                <td>${i.total_goal_scored}</td>
+                            </tr>
+                            `   
+                    }
+                });
+                document.getElementById("table-2").innerHTML = innerHTML !== "" ? innerHTML : document.getElementById("table-2").innerHTML
+            })
+        }
+        async function highestAssist(){
+            let url = "{% url 'league:assist' %}"
+            const response = await fetch(url)
+            let data = response.json()
+            data.then((data) => {
+                console.log(data)
+                let innerHTML = ""
+                data.forEach((i, idx) => {
+                    if (i.total_assists === 0){
+                        return
+                    }
+                    else{
+                        innerHTML += `
+                            <tr>
+                                <td>${idx+1}</td>
+                                <td class="team-name">
+                                    <span>${i.name}</span>
+                                </td>
+                                <td>${i.team}</td>
+                                <td>${i.total_assists}</td>
+                            </tr>
+                            `   
+                    }
+                });
+                document.getElementById("table-3").innerHTML = innerHTML !== "" ? innerHTML : document.getElementById("table-3").innerHTML
+            })
+        }
+        Table()
+        highestGoals()
+        highestAssist()
+    </script>
+</body>
+
+</html>
