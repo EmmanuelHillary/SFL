@@ -1,0 +1,99 @@
+Install dependencies
+    - sudo apt update
+    - sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl
+    
+
+Create database:
+    - CREATE DATABASE sfl;
+    - CREATE USER hillary WITH PASSWORD '1234';
+    - ALTER ROLE hillary SET client_encoding TO 'utf8';
+    - ALTER ROLE hillary SET default_transaction_isolation TO 'read committed';
+    - ALTER ROLE hillary SET timezone TO 'UTC';
+    - GRANT ALL PRIVILEGES ON DATABASE sfl TO hillary;
+
+Create Virtual Environment:
+    - sudo -H pip3 install --upgrade pip
+    - sudo -H pip3 install virtualenv
+
+install some dependencies
+    - pip install gunicorn psycopg2-binary
+
+configure settings:
+     - ALLOWED_HOSTS = ['*']
+
+consfigure .env file
+    - DB_NAME=portfolio
+    - DB_USER=hillary
+    - DB_PASSWORD=1234
+    - DB_HOST=localhost
+    - DB_PORT=''
+    - EMAIL_HOST_PASSWORD=clppofuhybifqwzp
+
+    set -o allexport; source /home/hillary/.env; set +o allexport
+
+Make migrations:
+     - python manage.py makemigrations
+     - python manage.py migrate
+     - python manage.py createsuperuser
+
+     python manage.py runserver 0.0.0.0:8000
+    
+Gunicorn:
+     - gunicorn --bind 0.0.0.0:8000 Portfolio.wsgi
+
+     gunicorn.socket:
+        - sudo vi /etc/systemd/system/gunicorn.socket
+            [Unit]
+            Description=gunicorn socket
+
+            [Socket]
+            ListenStream=/run/gunicorn.sock
+
+            [Install]
+            WantedBy=sockets.target
+     gunicorn.service:
+        - sudo vi /etc/systemd/system/gunicorn.service
+            [Unit]
+            Description=gunicorn daemon
+            Requires=gunicorn.socket
+            After=network.target
+
+            [Service]
+            User=hillary
+            Group=www-data
+            WorkingDirectory=/home/hillary/app/src/Portfolio
+            EnvironmentFile=/home/hillary/.env
+            ExecStart=/home/hillary/app/venv/bin/gunicorn \
+                    --access-logfile - \
+                    --workers 3 \
+                    --bind unix:/run/gunicorn.sock \
+                    Portfolio.wsgi:application
+
+            [Install]
+            WantedBy=multi-user.target
+
+Nginx:
+    - sudo vi /etc/nginx/sites-available/Portfolio
+        server {
+            listen 80;
+            server_name 143.198.168.65 www.emmanuelugwu.tk ;
+
+            location = /favicon.ico { access_log off; log_not_found off; }
+            location /static/ {
+                root /home/hillary/app/src/Portfolio;
+                alias /home/hillary/app/src/Portfolio/static_cdn;
+            }
+
+            location / {
+                include proxy_params;
+                proxy_pass http://unix:/run/gunicorn.sock;
+            }
+        }
+     - sudo ln -s /etc/nginx/sites-available/Portfolio /etc/nginx/sites-enabled
+
+
+
+
+     sudo certbot --nginx -d emmanuelugwu.tk -d www.emmanuelugwu.tk
+
+
