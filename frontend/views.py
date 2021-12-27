@@ -12,3 +12,12 @@ def result(request):
 def table(request):
     return render(request, "table.html")
 
+def login(request):
+    return render(request, "login.html")
+
+def register(request):
+    return render(request, "register.html")
+
+def fpl(request):
+    return render(request, "fpl.html")
+
