@@ -5,7 +5,7 @@ app_name = "frontend"
 
 urlpatterns = [
     path('', index, name="index"),
-    path('/fixtures', schedule, name="schedule"),
-    path('/results', result, name="result"),
+    path('fixtures/', schedule, name="schedule"),
+    path('results/', result, name="result"),
     # path('/table', table, name="table")
 ]
