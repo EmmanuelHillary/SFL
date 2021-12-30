@@ -42,19 +42,19 @@
 					<span class="txt1 p-b-11">
 						Username
 					</span>
-					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" >
+					<div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+						<input class="input100 username" type="text" name="username" >
 						<span class="focus-input100"></span>
 					</div>
 					
 					<span class="txt1 p-b-11">
 						Password
 					</span>
-					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+					<div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
 						<span class="btn-show-pass">
 							<i class="fa fa-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass" >
+						<input class="input100 password" type="password" name="password" >
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -100,6 +100,76 @@
 	<script src="{% static 'auth/vendor/countdowntime/countdowntime.js' %}"></script>
 <!--===============================================================================================-->
 	<script src="{% static 'auth/js/main.js' %}"></script>
+	<script>
+		function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        // Does this cookie string begin with the name we want?
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+
+            function objectifyForm(formArray) {
+                //serialize data function
+                var returnArray = {};
+                for (var i = 0; i < formArray.length; i++){
+                    returnArray[formArray[i]['name']] = formArray[i]['value'];
+                }
+                return returnArray;
+            }
+
+            const csrftoken = getCookie('csrftoken');
+            $(".validate-form").submit(function(e){
+                e.preventDefault();
+                let url = `{% url 'auth:login' %}`
+                let formDATA = $(this).serializeArray()
+                let data = objectifyForm(formDATA)
+				console.log(data)
+                $.ajax({
+                    method: "POST",
+                    url: url,
+                    headers:{"X-CSRFToken": csrftoken},
+					dataType: "json",
+					contentType: "application/json",
+					data: JSON.stringify(data),
+                    success: function (data, textStatus, xhr) {
+                      if (xhr.status === 200){
+						  window.location.href = `{% url 'frontend:fpl' %}`
+					  }
+                    },
+					error: function(jqXHR, textStatus, errorThrown){
+						console.log(jqXHR.responseText)
+						let error = JSON.parse(jqXHR.responseText)
+						if (error.username){
+							var thisAlert = $('.username').parent();
+							$(thisAlert).attr('data-validate', error.username)
+							$(thisAlert).addClass('alert-validate');
+						}
+						if(error.password){
+							var thisAlert = $('.password').parent();
+							$(thisAlert).attr('data-validate', error.password)
+							$(thisAlert).addClass('alert-validate');
+						}
+						if(error.non_field_errors){
+							var thisAlert = $('.password').parent();
+							$(thisAlert).attr('data-validate', error.non_field_errors[0])
+							$(thisAlert).addClass('alert-validate');
+						}
+					}
+                });
+                
+                
+            })
+            
+	</script>
 
 </body>
 </html>
