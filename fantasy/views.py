@@ -1,13 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework import generics
 from rest_framework.generics import CreateAPIView, RetrieveAPIView
-from .models import UserFPLCreate, UserFPLPick, UserProfile, Captain
-from .serializers import UserFPLCreateSerializer, UserViewTeamSerializer
+from .models import UserFPLCreate, UserFPLPick, UserProfile, Captain, Cap
+from .serializers import UserFPLCreateSerializer, UserViewTeamSerializer, UserProfileSerializer
 from league.serializers import PlayerSerializer
+from league.models import GameweekName
 from rest_framework.views import APIView
 from league.models import Player
 from rest_framework.response import Response
 from rest_framework import status
+import math
 
 
 class UserFPLCreateAPIView(generics.CreateAPIView):
@@ -15,16 +17,15 @@ class UserFPLCreateAPIView(generics.CreateAPIView):
     serializer_class = UserFPLCreateSerializer
 
     def perform_create(self, serializer):
-        print(self.request.user)
         serializer.save(user=UserProfile.objects.get(user=self.request.user))
     
 
 class UserFPLSelectTeam(APIView):
     def get(self, request, *args, **kwargs):
-        goalkeeper = Players.objects.filter(position__name_short="GKP")
-        defenders = Players.objects.filter(position__name_short="DEF")
-        midfielders = Players.objects.filter(position__name_short="MFS")
-        attackers = Players.objects.filter(position__name_short="ATT")
+        goalkeeper = Player.objects.filter(position__name_short="GKP")
+        defenders = Player.objects.filter(position__name_short="DEF")
+        midfielders = Player.objects.filter(position__name_short="MFS")
+        attackers = Player.objects.filter(position__name_short="ATT")
         data = {
             'gkp': PlayerSerializer(goalkeeper, many=True).data,
             'def': PlayerSerializer(defenders, many=True).data,
@@ -38,7 +39,7 @@ class UserFPLSubTeam(APIView):
         user = UserFPLPick.objects.filter(user__user__username=request.user.username)
         if user.exists():
             user = user.first()
-            player_postion = self.kwargs["postion"]
+            player_postion = self.kwargs["position"]
             if player_postion == "gkp":
                 player_to_bench  = self.kwargs["player"]
                 player_to_team = user.gkp_bench 
@@ -56,7 +57,7 @@ class UserFPLSubTeam(APIView):
                     user.def2 = player_to_team
                     user.save()
                 if user.def3.name == player_to_bench:
-                    user.def1 = player_to_team
+                    user.def3 = player_to_team
                     user.save()
                 if user.def4.name == player_to_bench:
                     user.def4 = player_to_team
@@ -98,13 +99,18 @@ class UserFPLViewTeam(RetrieveAPIView):
     queryset = UserFPLPick.objects.all()
     serializer_class = UserViewTeamSerializer
 
+    def get_object(self):
+        queryset = self.get_queryset()
+        obj = get_object_or_404(queryset, user__user__username=self.request.user.username)
+        self.check_object_permissions(self.request, obj)
+        return obj
 
 class UserFPLTransferTeam(APIView):
     def get(self, request, *args, **kwargs):
         user = UserFPLPick.objects.filter(user__user__username=request.user.username)
         if user.exists():
             user = user.first()
-            postion = self.kwargs["postion"]
+            postion = self.kwargs["position"]
             if postion == "gkp":
                 player_to_transfer  = self.kwargs["player"]
                 user.gkp =  Player.objects.get(name=player_to_transfer)
@@ -172,7 +178,7 @@ class UserFPLTransferTeam(APIView):
 class MakeCaptain(APIView):
     def get(self, request, *args, **kwargs):
         player_to_captain = self.kwargs.get("player")
-        user = UserProfile.objects.filter(user__username=request.user.username)
+        user = UserProfile.objects.get(user__username=request.user.username)
         team_obj = UserFPLPick.objects.get(user=user)
         team = [
             team_obj.gkp,
@@ -188,17 +194,10 @@ class MakeCaptain(APIView):
             team_obj.att3,
             ]
         for i in team:
-            if i.name == player_to_captain:
-                captain = Captain.objects.get(user=user)
-                if captain is not None:
-                    captain.captain = Player.objects.get(name=player_to_captain)
-                    captain.save()
-                else:
-                    captain = Captain.objects.create(
-                    user=user,
-                    captain=Player.objects.get(name=player_to_captain),
-                    )
-                    captain.save()
+            if i.name == player_to_captain: 
+                captain, created = Captain.objects.get_or_create(user=user)
+                captain.captain = Player.objects.get(name=player_to_captain)
+                captain.save()
                 return Response(status=status.HTTP_200_OK)
         return Response(status=status.HTTP_404_NOT_FOUND)
             
@@ -227,17 +226,60 @@ class GameWeekPoints(APIView):
             "def_bench_points": gw_tem_points.def_bench.sfl_gw_point,
             "mid_bench_points": gw_tem_points.mid_bench.sfl_gw_point,
             "att_bench_points": gw_tem_points.att_bench.sfl_gw_point,
-            "captain": captain.captain.sfl_gw_point * 2
+            "captain": captain.captain.sfl_gw_point
         }})
 
 class UserDetails(APIView):
     def get(self, request, *args, **kwargs):
         user = UserProfile.objects.filter(user__username=request.user.username).first()
-        user_team = UserFPLPick.objects.get(user=user)
-        user.total_points = 0
-        gw_points = 0
-        average_point = 0
-        highest_points = 0
+        users_teams = UserProfile.objects.all().order_by('-total_points')
+        total_teams = UserProfile.objects.all().count()
+        total_team_gw_points = 0
+        for team in users_teams:
+            total_team_gw_points += team.gw_points
+        average_points = math.ceil(total_team_gw_points / total_teams)
+        user_gw_points = user.gw_points
+        user_total_points = user.total_points
+        highest_points = users_teams.first().gw_points
+        user_rank = UserProfileSerializer(users_teams, many=True).data 
+        data = {
+            "average_points" : average_points,
+            "user_gw_points" : user_gw_points,
+            "highest_points" : highest_points,
+            "user_total_points": user_total_points,
+            "user_rank" : user_rank,
+        }
+        return Response(data, status=status.HTTP_200_OK)
+
+class ChangeGameweek(APIView):
+    def get(self, request, *args, **kwargs):
+        teams = UserFPLPick.objects.all()
+        players = Player.objects.all()
+        for i in teams:
+            i.gameweek = GameweekName.objects.filter(id__gt=i.gameweek.id).order_by('id').first()
+            i.save()
+            i.user.total_points += i.user.gw_points
+            i.user.save()
+            i.user.gw_points = 0
+            i.user.save()
+        for i in players:
+            i.sfl_total_points += i.sfl_gw_point
+            i.save()
+            i.sfl_gw_point = 0
+            i.save() 
+        return Response(status=status.HTTP_200_OK)
+
+class CapBoolean(APIView):
+    def get(self, request, *args, **kwargs):
+        cap = Cap.objects.all().first()
+        data = {
+            "cap": cap.cap
+        }
+        return Response(data, status=status.HTTP_200_OK)
+        
+
+
+
 
 
 

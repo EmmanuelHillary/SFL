@@ -94,37 +94,7 @@
                 
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h3>SFL <span>Team</span></h3>
-                    </div>
-                    <div class="row mb-4 score-board" style="justify-content: center;">
-                        <div class="card col-xl-2 mr-md-3 mr-sm-2 col-sm-4" style="width: 14rem; border: 1px solid #dd1515;">
-                            <div class="card-body" style="text-align: center;">
-                              <h5 class="card-title"><strong id="latest">Latest Point</strong></h5>
-                              <p class="card-text" id="point" style="color: #dd1515; font-size: xx-large;">108</p>
-                            </div>
-                        </div>
-                        <div class="card col-xl-4 mr-md-3 mr-sm-2 col-sm-4 mt-3" style="width: 14rem; border: 1px solid #dd1515;">
-                            <div class="container-fluid">
-                                <div style="margin-top: 3%;" >
-                                    <span style="margin-right: 50%;" class="font">Average points</span><span><strong>30</strong></span>
-                                </div>
-                                <hr>
-                                <div>
-                                    <span style="margin-right: 50%;" class="font">Highest points</span><span style="color: #dd1515;"><strong>130</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card col-xl-4 col-sm-4 mt-3" style="width: 14rem; border: 1px solid #dd1515;">
-                            <div class="container-fluid">
-                                <div style="margin-top: 3%;" >
-                                    <span style="margin-right: 50%;" class="font">SFL Rank</span><span><strong>3</strong></span>
-                                </div>
-                                <hr>
-                                <div>
-                                    <span style="margin-right: 50.5%;" class="font">Transfers</span><span style="color: #dd1515;"><strong>2</strong></span>
-                                </div>
-                            </div>
-                        </div>
+                        <h3>SFL <span>Team - {{ request.user.username }}</span></h3>
                     </div>
                     <div class="points-table">
                         <div class="pitch mx-auto"> <!-- PITCH START-->
@@ -155,69 +125,58 @@
                             <!--   TEAM START   -->
                     
                             <div class="goalkeeper">
-                              <div class="player">
+                              <div class="player"  onclick="player(this)" value="GKP" style="cursor: pointer;">
                                 <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                                <span>Aghahowa</span>
-                                <span><strong>6</strong></span>
+                                <span  style="text-align: center;" class="create-team" name="gkp1">Select Player</span>
                               </div>
                             </div>
                     
                             <div class="defenders">
-                              <div class="player">
+                              <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
                                 <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                                <span>Dante</span>
-                                <span><strong>6</strong></span>
+                                <span style="text-align: center;" class="create-team" name="def4">Select Player</span>
                               </div>
-                              <div class="player">
+                              <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
                                 <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                                <span>Alrho</span>
-                                <span><strong>6</strong></span>
+                                <span style="text-align: center;" class="create-team" name="def3">Select Player</span>
                               </div>
-                              <div class="player">
+                              <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
                                 <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                                <span>Franklin</span>
-                                <span><strong>6</strong></span>
+                                <span style="text-align: center;" class="create-team" name="def2">Select Player</span>
                               </div>
-                              <div class="player">
+                              <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
                                 <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                                <span>Mubarak</span>
-                                <span><strong>6</strong></span>
+                                <span style="text-align: center;" class="create-team" name="def1">Select Player</span>
                               </div>
                             </div>
                     
                             <div class="midfielders">
-                              <div class="player">
+                              <div class="player" onclick="player(this)" value="MID" style="cursor: pointer;">
                                 <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                                <span>Gucci</span>
-                                <span><strong>8</strong></span>
+                                <span style="text-align: center;" class="create-team" name="mid3">Select Player</span>
                               </div>
-                              <div class="player">
+                              <div class="player" onclick="player(this)" value="MID" style="cursor: pointer;">
                                 <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                                <span>Ebuka</span>
-                                <span><strong>8</strong></span>
+                                <span style="text-align: center;" class="create-team" name="mid2">Select Player</span>
                               </div>
-                              <div class="player">
+                              <div class="player"  onclick="player(this)" value="MID" style="cursor: pointer;">
                                 <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                                <span>Enoch</span>
-                                <span><strong>8</strong></span>
+                                <span style="text-align: center;" class="create-team" name="mid1">Select Player</span>
                               </div>
                             </div>
                     
                             <div class="forwards">
-                              <div class="player mt-5">
-                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"><span style="font-size: x-small; color: antiquewhite;">C</span></i>
-                                <span>Olami</span>
-                                <span><strong>20</strong></span>
-                              </div>
-                              <div class="player mt-5">
+                              <div class="player mt-5"  onclick="player(this)" value="ATT" style="cursor: pointer;">
                                 <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                                <span class="">Dylan</span>
-                                <span><strong>6</strong></span>
+                                <span style="text-align: center;" class="create-team" name="att3">Select Player</span>
                               </div>
-                              <div class="player mt-5">
+                              <div class="player mt-5"  onclick="player(this)" value="ATT" style="cursor: pointer;">
                                 <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                                <span>Hillary</span>
-                                <span><strong>4</strong></span>
+                                <span style="text-align: center;" class="create-team" name="att2">Select Player</span>
+                              </div>
+                              <div class="player mt-5"  onclick="player(this)" value="ATT" style="cursor: pointer;">
+                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <span style="text-align: center;" class="create-team" name="att1">Select Player</span>
                               </div>
                             </div>
                     
@@ -225,27 +184,24 @@
                     
                           </div> <!-- PITCH END-->
                           <div class="bench mt-3">
-                            <div class="player">
+                            <div class="player" onclick="player(this)" value="ATT" style="cursor: pointer;">
                               <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                              <span>chukwudi</span>
-                              <span><strong>2</strong></span>
+                              <span style="text-align: center;" class="create-team" name="att4">Select Player</span>
                             </div>
-                            <div class="player">
+                            <div class="player" onclick="player(this)" value="MID" style="cursor: pointer;">
                               <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                              <span>Musa</span>
-                              <span><strong>3</strong></span>
+                              <span style="text-align: center;" class="create-team" name="mid4">Select Player</span>
                             </div>
-                            <div class="player">
+                            <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
                               <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                              <span>Tayo</span>
-                              <span><strong>2</strong></span>
+                              <span style="text-align: center;" class="create-team" name="def5">Select Player</span>
                             </div>
-                            <div class="player" onclick="player()" style="cursor: pointer;">
+                            <div class="player" onclick="player(this)" value="GKP"  style="cursor: pointer;">
                               <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
-                              <span>Obong</span>
-                              <span><strong>0</strong></span>
+                              <span style="text-align: center;" class="create-team" name="gkp2">Select Player</span>
                             </div>
                           </div>
+                          <a href="#" class="p-all mt-4" onclick="submit(); return false;" style="background-color: #dd1515; align-self: center;">Create Team</a>
                     </div>
                 </div>
             </div>
@@ -255,103 +211,52 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title" id="modaltitle">Select Defender</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <p>Modal body text goes here.</p>
+                <select class="custom-select" id="modalselect" size="3">
+                </select>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" onclick="save()">Save changes</button>
               </div>
             </div>
           </div>
       </div>
-    <section class="latest-section mt-3">
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h3>SFL <span>Ranking</span></h3>
-                    </div>
-                    <div class="points-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="th-o">Pos</th>
-                                    <th>User Name</th>
-                                    <th class="th-o">Points</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="team-name">
-                                        <span>This</span>
-                                    </td>
-                                    <td>22</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td class="team-name">
-                                        <span>that</span>
-                                    </td>
-                                    <td>20</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td class="team-name">
-                                        <span>who</span>
-                                    </td>
-                                    <td>18</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td class="team-name">
-                                        <span>me</span>
-                                    </td>
-                                    <td>17</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td class="team-name">
-                                        <span>he</span>
-                                    </td>
-                                    <td>17</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td class="team-name">
-                                        <span>she</span>
-                                    </td>
-                                    <td>16</td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td class="team-name">
-                                        <span>it</span>
-                                    </td>
-                                    <td>15</td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td class="team-name">
-                                        <span>they</span>
-                                    </td>
-                                    <td>14</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+      <div id="errorModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modaltitle">ERROR!!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                You Have Already Selected This Player
+              </div>
             </div>
-        </div>
-    </section>
+          </div>
+      </div>
+      <div id="errorModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modaltitle">ERROR!!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Your squad seems to be incomplete
+              </div>
+            </div>
+          </div>
+      </div>
     <!-- Latest Section End -->
 
     <!-- Video Section Begin -->
@@ -390,10 +295,109 @@
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/startingXI.js' %}"></script>
     <script type="text/javascript">
-        function player(){
+        let fpldata;
+        let currentPlayer;
+        let selectedPlayers = {};
+        let url = `{% url 'fantasy:select-team'  %}`
+         $.ajax({
+                  method: "GET",
+                  url: url,
+                  dataType: "json",
+                  contentType: "application/json",
+                  success: function (data, textStatus, xhr) {
+                            if (xhr.status === 200){
+                            fpldata = data;
+                          }
+                    }
+                  });
+        function populateSelect(data, value, idname){
+          let selectHTML;
+          for(let i of data[`${value}`]){
+              selectHTML += `<option value="${i.name}" data-id="${i.id}" > ${i.name} <--> <span style="font-weight: bold;">${i.team}</span></option>`;
+              }
+              document.getElementById(`${idname}`).innerHTML = selectHTML;
+        }
+        function player(event){
+            if($(event).attr("value") == "ATT"){
+              currentPlayer = $(event).children('span')
+              document.getElementById("modaltitle").innerHTML = "Select Foward";
+              populateSelect(fpldata, 'att', 'modalselect')
+            }
+            if($(event).attr("value") == "MID"){
+              currentPlayer = $(event).children('span')
+              document.getElementById("modaltitle").innerHTML = "Select MidFielder";
+              populateSelect(fpldata, 'mid', 'modalselect')
+            }
+            if($(event).attr("value") == "DEF"){
+              currentPlayer = $(event).children('span')
+              document.getElementById("modaltitle").innerHTML = "Select Defender";
+              populateSelect(fpldata, 'def', 'modalselect')
+            }
+            if($(event).attr("value") == "GKP"){
+              currentPlayer = $(event).children('span')
+              document.getElementById("modaltitle").innerHTML = "Select Goalkeeper";
+              populateSelect(fpldata, 'gkp', 'modalselect')
+            }
             $("#myModal").modal("show")
+        }
+        function save(){
+          if ($("#modalselect").val() !== null){
+            if (Object.values(selectedPlayers).indexOf($("#modalselect").val()) > -1){
+              $("#errorModal").modal("show")
+            }
+            else{
+              $(currentPlayer[0]).text($("#modalselect").val());
+              $(currentPlayer[0]).val($("#modalselect").find(":selected").data("id")); 
+              let keyname = $(currentPlayer[0]).attr('name')
+              selectedPlayers[`${keyname}`] =  $("#modalselect").val()
+            }
+          }
+          $("#myModal").modal("hide")
+        }
+        function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        // Does this cookie string begin with the name we want?
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+        const csrftoken = getCookie('csrftoken');
+        function submit(){
+          if (Object.keys(selectedPlayers).length < 15){
+            $("#errorModal2").modal("show")
+          }
+          else{
+            data = {};
+            for(let i of $('.create-team')){
+                data[`${$(i).attr('name')}`] = parseInt($(i).val())
+            }
+            let url = `{% url 'fantasy:create' %}`
+            $.ajax({
+                method: "POST",
+                url: url,
+                headers:{"X-CSRFToken": csrftoken},
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                success: function (data, textStatus, xhr) {
+                  if (xhr.status === 201){
+                    window.location.href = `{% url 'frontend:pick_team' %}`
+                  }
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                  console.log(jqXHR.responseText)
+                }
+            })
+          }
         }
     </script>
 </body>
-
 </html>

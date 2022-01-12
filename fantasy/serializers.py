@@ -1,10 +1,17 @@
 from rest_framework import serializers
-from .models import UserProfile, UserFPLCreate, UserFPLPick
+from .models import UserProfile, UserFPLCreate, UserFPLPick, Captain
+from league.serializers import PlayerSerializer
+from league.models import Player
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    user = serializers.SerializerMethodField(read_only=True)  
+
     class Meta:
         model = UserProfile
         fields = "__all__"
+    
+    def get_user(self, obj):
+        return obj.user.username 
 
 class UserFPLCreateSerializer(serializers.ModelSerializer):
     class Meta:
@@ -55,9 +62,33 @@ class UserFPLCreateSerializer(serializers.ModelSerializer):
             att_bench = att_bench,
         )
         fplpick.save()
+        captain, created = Captain.objects.get_or_create(user=fplcreate.user)
+        captain.captain = mid2
+        captain.save()
         return fplcreate
 
 class UserViewTeamSerializer(serializers.ModelSerializer):
+    gkp = PlayerSerializer(read_only=True)   
+    def1 = PlayerSerializer(read_only=True)  
+    def2 = PlayerSerializer(read_only=True)  
+    def3 = PlayerSerializer(read_only=True)  
+    def4 = PlayerSerializer(read_only=True)  
+    mid1 = PlayerSerializer(read_only=True)  
+    mid2 = PlayerSerializer(read_only=True)  
+    mid3 = PlayerSerializer(read_only=True)  
+    att1 = PlayerSerializer(read_only=True)  
+    att2 = PlayerSerializer(read_only=True)  
+    att3 = PlayerSerializer(read_only=True)  
+    gkp_bench = PlayerSerializer(read_only=True)  
+    def_bench = PlayerSerializer(read_only=True)   
+    mid_bench = PlayerSerializer(read_only=True)  
+    att_bench = PlayerSerializer(read_only=True)
+    captain = serializers.SerializerMethodField(read_only=True)   
     class Meta:
         model = UserFPLPick
         exclude = ('user', )
+    
+    def get_captain(self, obj):
+        captain = Captain.objects.get(user=obj.user)
+        return PlayerSerializer(captain.captain).data
+

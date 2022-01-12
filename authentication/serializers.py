@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 import re
+from fantasy.models import UserProfile
+from django.contrib.auth import login, authenticate
 
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
@@ -50,8 +52,12 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         return data
     
     def create(self, validated_data):
+        request = self.context.get("request") 
+        username = validated_data.get("username")
         password = validated_data.get("password")
         user = User.objects.create(**validated_data)
         user.set_password(password)
         user.save()
+        user_login = authenticate(username=username, password=password)
+        login(request, user_login)
         return user

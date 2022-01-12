@@ -17,21 +17,21 @@ class UserProfile(models.Model):
 
 class UserFPLCreate(models.Model):
     user = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
-    gkp1 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_gkp1')
-    gkp2 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_gkp2')
-    def1 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_def1')
-    def2 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_def2')
-    def3 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_def3')
-    def4 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_def4')
-    def5 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_def5')
-    mid1 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_mid1')
-    mid2 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_mid2')
-    mid3 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_mid3')
-    mid4 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_mid4')
-    att1 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_att1')
-    att2 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_att2')
-    att3 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_att3')
-    att4 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='fpl_create_att4')
+    gkp1 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_gkp1')
+    gkp2 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_gkp2')
+    def1 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_def1')
+    def2 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_def2')
+    def3 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_def3')
+    def4 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_def4')
+    def5 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_def5')
+    mid1 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_mid1')
+    mid2 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_mid2')
+    mid3 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_mid3')
+    mid4 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_mid4')
+    att1 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_att1')
+    att2 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_att2')
+    att3 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_att3')
+    att4 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='fpl_create_att4')
 
     def __str__(self):
         return self.user.user.username
@@ -39,21 +39,21 @@ class UserFPLCreate(models.Model):
 class UserFPLPick(models.Model):
     user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, related_name='user_fpl_pick')
     gameweek = models.ForeignKey(GameweekName, on_delete=models.CASCADE, default=1)
-    gkp = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='gkp')
-    def1 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='def1')
-    def2 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='def2')
-    def3 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='def3')
-    def4 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='def4')
-    mid1 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='mid1')
-    mid2 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='mid2')
-    mid3 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='mid3')
-    att1 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='att1')
-    att2 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='att2')
-    att3 = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='att3')
-    gkp_bench = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='gkp_bench')
-    def_bench = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='def_bench')
-    mid_bench = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='mid_bench')
-    att_bench = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='att_bench')
+    gkp = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='gkp')
+    def1 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='def1')
+    def2 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='def2')
+    def3 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='def3')
+    def4 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='def4')
+    mid1 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='mid1')
+    mid2 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='mid2')
+    mid3 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='mid3')
+    att1 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='att1')
+    att2 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='att2')
+    att3 = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='att3')
+    gkp_bench = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='gkp_bench')
+    def_bench = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='def_bench')
+    mid_bench = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='mid_bench')
+    att_bench = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='att_bench')
 
     def __str__(self):
         return self.user.user.username 
@@ -61,10 +61,15 @@ class UserFPLPick(models.Model):
 
 class Captain(models.Model):
     user = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
-    captain = models.ForeignKey(Player, null=True, on_delete=models.SET_NULL, related_name='captain')
+    captain = models.ForeignKey(Player, null=True, on_delete=models.CASCADE, related_name='captain')
 
     def __str__(self):
-        return f'{self.user.user.username} | captain: {self.captain.name}'
+        return f'{self.user.user.username}'
+
+class Cap(models.Model):
+    cap = models.BooleanField(default=True)
+
+
     
 
 

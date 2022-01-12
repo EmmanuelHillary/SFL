@@ -39,7 +39,7 @@
             <li><a href="{% url 'frontend:index' %}">Home</a></li>
             <li class="active"><a href="{% url 'frontend:schedule' %}">Schedule</a></li>
             <li><a href="{% url 'frontend:result' %}">Results</a></li>
-            <li><a href="{% if request.user.is_authenticated %} {% url 'frontend:fpl' %} {% else %} {% url 'frontend:login' %} {% endif %}">Fantasy</a></li>
+            <li><a href="{% if request.user.is_authenticated %} {% url 'frontend:pick_team' %} {% else %} {% url 'frontend:login' %} {% endif %}">Fantasy</a></li>
         </ul>
         <div id="mobile-menu-wrap"></div>
     </div>
@@ -67,7 +67,7 @@
                                 <li><a href="{% url 'frontend:index' %}">Home</a></li>
                                 <li class="active"><a href="{% url 'frontend:schedule' %}">Schedule</a></li>
                                 <li><a href="{% url 'frontend:result' %}">Results</a></li>
-                                <li><a href="{% if request.user.is_authenticated %} {% url 'frontend:fpl' %} {% else %} {% url 'frontend:login' %} {% endif %}">Fantasy</a></li>
+                                <li><a href="{% if request.user.is_authenticated %} {% url 'frontend:pick_team' %} {% else %} {% url 'frontend:login' %} {% endif %}">Fantasy</a></li>
                                
                             </ul>
                         </div>

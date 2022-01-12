@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_auth',
     'rest_framework.authtoken',
+    'django_celery_beat',
     
     # local apps
     'authentication',
@@ -138,7 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Lagos'
 
 USE_I18N = True
 
@@ -171,4 +172,13 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication' 
     ],
+}
+
+LOGIN_URL= '/login/'
+
+CELERY_BEAT_SCHEDULE = {
+    "scheduled_task":{
+        "task": "fantasy.tasks.update_fpl",
+        "schedule": 5.0,
+    }
 }

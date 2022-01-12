@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+
 
 def index(request):
     return render(request, "index.html")
@@ -18,6 +21,27 @@ def login(request):
 def register(request):
     return render(request, "register.html")
 
+@login_required(login_url='/login/')
 def fpl(request):
     return render(request, "fpl.html")
+
+@login_required(login_url='/login/')
+def create_team(request):
+    return render(request, "create_team.html")
+
+@login_required(login_url='/login/')
+def pick_team(request):
+    return render(request, "pick_team.html")
+
+@login_required(login_url='/login/')
+def transfer(request):
+    return render(request, "transfer.html")
+
+@login_required(login_url='/login/')
+def points(request):
+    return render(request, "points.html")
+
+def logout_view(request):
+    logout(request)
+    return redirect('frontend:index')
 

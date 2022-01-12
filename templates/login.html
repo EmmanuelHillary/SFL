@@ -132,7 +132,6 @@
                 let url = `{% url 'auth:login' %}`
                 let formDATA = $(this).serializeArray()
                 let data = objectifyForm(formDATA)
-				console.log(data)
                 $.ajax({
                     method: "POST",
                     url: url,
@@ -141,7 +140,7 @@
 					contentType: "application/json",
 					data: JSON.stringify(data),
                     success: function (data, textStatus, xhr) {
-                      if (xhr.status === 200){
+                    if (xhr.status === 200){
 						  window.location.href = `{% url 'frontend:fpl' %}`
 					  }
                     },

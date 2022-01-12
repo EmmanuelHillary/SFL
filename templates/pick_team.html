@@ -1,0 +1,450 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Specer Template">
+    <meta name="keywords" content="Specer, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SEES Sports</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/startingXI.css' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Section Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <i class="fa fa-close"></i>
+        </div>
+        <ul class="main-menu mobile-menu">
+            <li ><a href="{% url 'frontend:index' %}">Home</a></li>
+            <li><a href="{% url 'frontend:schedule' %}">Schedule</a></li>
+            <li><a href="{% url 'frontend:result' %}">Results</a></li>
+            <li><a href="{% url 'frontend:pick_team' %}">Pick Team</a></li>
+            <li><a href="{% url 'frontend:transfer' %}">Transfers</a></li>
+            <li><a href="{% url 'frontend:points' %}">Points</a></li>
+            <li class="active"><a href="{% url 'frontend:logout' %}">Logout</a></li>
+        </ul>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+    <!-- Offcanvas Menu Section End -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="header__top">
+            <div class="container">
+            </div>
+        </div>
+        <div class="header__nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                            <a href="{% url 'frontend:index' %}"><img src="{% static 'img/logo.png' %}" height="50px" width="50px" alt=""></a>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="nav-menu">
+                            <ul class="main-menu">
+                                <li class="active"><a href="{% url 'frontend:index' %}">Home</a></li>
+                                <li><a href="{% url 'frontend:schedule' %}">Fixtures</a></li>
+                                <li><a href="{% url 'frontend:result' %}">Results</a></li>                  
+                                <li><a href="{% url 'frontend:pick_team' %}">Pick Team</a></li>
+                                <li><a href="{% url 'frontend:transfer' %}">Transfers</a></li>
+                                <li><a href="{% url 'frontend:points' %}">Points</a></li>
+                                <li><a href="{% url 'frontend:logout' %}">Logout</a></li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas-open">
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Trending News Section Begin -->
+  
+    <!-- Trending News Section End -->
+
+    <!-- Match Section Begin -->
+    <!-- Match Section End -->
+    <!-- Latest Section Begin -->
+    <section class="latest-section mt-3">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h3>SFL <span>Team - {{ request.user.username }}</span></h3>
+                    </div>
+                    <div class="points-table">
+                        <div class="pitch mx-auto"> <!-- PITCH START-->
+
+                            <!-- TOP HALF START -->
+                            <div class="corner corner-top-left"></div>
+                            <div class="corner corner-top-right"></div>
+                            <div class="six-yard-box-top"></div>
+                            <div class="eighteen-yard-box-top"></div>
+                            <div class="eighteen-yard-half-circle-top"></div>
+                            <!-- TOP HALF END -->
+                    
+                            <!-- CENTER START -->
+                    
+                            <div class="center-circle"></div>
+                            <div class="center-line"></div>
+                    
+                            <!-- CENTER END -->
+                    
+                            <!-- BOTTOM HALF START -->
+                            <div class="corner corner-bottom-left"></div>
+                            <div class="corner corner-bottom-right"></div>
+                            <div class="six-yard-box-bottom"></div>
+                            <div class="eighteen-yard-half-circle-bottom"></div>
+                            <div class="eighteen-yard-box-bottom"></div>
+                            <!-- BOTTOM HALF END -->
+                    
+                            <!--   TEAM START   -->
+                    
+                            <div class="goalkeeper">
+                              <div class="player"  onclick="player(this)" value="GKP" style="cursor: pointer;">
+                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <span  style="text-align: center;" class="create-team" name="gkp"></span>
+                              </div>
+                            </div>
+                    
+                            <div class="defenders">
+                              <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
+                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <span style="text-align: center;" class="create-team" name="def4"></span>
+                              </div>
+                              <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
+                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <span style="text-align: center;" class="create-team" name="def3"></span>
+                              </div>
+                              <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
+                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <span style="text-align: center;" class="create-team" name="def2"></span>
+                              </div>
+                              <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
+                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <span style="text-align: center;" class="create-team" name="def1"></span>
+                              </div>
+                            </div>
+                    
+                            <div class="midfielders">
+                              <div class="player" onclick="player(this)" value="MID" style="cursor: pointer;">
+                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <span style="text-align: center;" class="create-team" name="mid3"></span>
+                              </div>
+                              <div class="player" onclick="player(this)" value="MID" style="cursor: pointer;">
+                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <span style="text-align: center;" class="create-team" name="mid2"></span>
+                                
+                              </div>
+                              <div class="player"  onclick="player(this)" value="MID" style="cursor: pointer;">
+                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <span style="text-align: center;" class="create-team" name="mid1"></span>
+                              </div>
+                            </div>
+                    
+                            <div class="forwards">
+                              <div class="player mt-5"  onclick="player(this)" value="ATT" style="cursor: pointer;">
+                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <span style="text-align: center;" class="create-team" name="att3"></span>
+                              </div>
+                              <div class="player mt-5"  onclick="player(this)" value="ATT" style="cursor: pointer;">
+                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <span style="text-align: center;" class="create-team" name="att2"></span>
+                              </div>
+                              <div class="player mt-5"  onclick="player(this)" value="ATT" style="cursor: pointer;">
+                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <span style="text-align: center;" class="create-team" name="att1"></span>
+                              </div>
+                            </div>
+                    
+                            <!--   TEAM END    -->
+                    
+                          </div> <!-- PITCH END-->
+                          <div class="bench mt-3">
+                            <div class="player" value="ATT" style="cursor: pointer;">
+                              <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                              <span style="text-align: center;" class="create-team" name="att_bench"></span>
+                            </div>
+                            <div class="player" value="MID" style="cursor: pointer;">
+                              <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                              <span style="text-align: center;" class="create-team" name="mid_bench"></span>
+                            </div>
+                            <div class="player" value="DEF" style="cursor: pointer;">
+                              <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                              <span style="text-align: center;" class="create-team" name="def_bench"></span>
+                            </div>
+                            <div class="player" value="GKP"  style="cursor: pointer;">
+                              <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                              <span style="text-align: center;" class="create-team" name="gkp_bench"></span>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modaltitle">Select Defender</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Player</th>
+                      <th scope="col">Gameweek points</th>
+                      <th scope="col">Total points</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td id="playerName"></td>
+                      <td id="gw_points"></td>
+                      <td id="total_points"></td>
+                      <td><button type="button" id="make_captain" onclick="makeCaptain()" class="btn btn-outline-danger">Make Captain</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <select class="custom-select" id="modalselect" size="1">
+                </select>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="save()">Make Substitution</button>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div id="errorModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modaltitle">ERROR!!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                You Have Already Selected This Player
+              </div>
+            </div>
+          </div>
+      </div>
+      <div id="errorModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modaltitle">ERROR!!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Your squad seems to be incomplete
+              </div>
+            </div>
+          </div>
+      </div>
+    <!-- Latest Section End -->
+
+    <!-- Video Section Begin -->
+    <!-- Video Section End -->
+
+    <!-- Popular News Section Begin -->
+   
+    <!-- Footer Section Begin -->
+    <footer class="footer-section set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="fs-logo">
+                        
+                        <ul>
+                            <li>Developers</li>
+                            <li><i class="fa fa-thumb-tack"></i>Akinwa Olamilekan</li>
+                            <li><i class="fa fa-thumb-tack"></i>Ugwu Hillary</li>
+                            <li><i class="fa fa-thumb-tack"></i>Kaduru Nathan</li>
+                        </ul>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+     
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/startingXI.js' %}"></script>
+    <script type="text/javascript">
+        let fpldata;
+        let currentPlayer;
+        let currentPosition;
+        let selectedPlayers = {};
+        let url = `{% url 'fantasy:view-team'  %}`
+
+        function populateTeam(data){
+          for(let i of $('.create-team')){
+                let player = data[`${$(i).attr('name')}`]
+                let captain = data.captain
+                $(i).text(player.name)
+                if (player.name === captain.name){
+                    $('<i class="fab fa-cuttlefish" id="captain"></i>').insertAfter(i)
+                }
+            }
+        }
+        function getFplData(){
+          $.ajax({
+                  method: "GET",
+                  url: url,
+                  dataType: "json",
+                  contentType: "application/json",
+                  success: function (data, textStatus, xhr) {
+                            if (xhr.status === 200){
+                            populateTeam(data)
+                            fpldata = data
+                          }
+                    }
+                  });
+        }
+        function getFplCap(){
+          let url = `{% url 'fantasy:cap' %}`
+          $.ajax({
+                  method: "GET",
+                  url: url,
+                  dataType: "json",
+                  contentType: "application/json",
+                  success: function (data, textStatus, xhr) {
+                            if (xhr.status === 200){
+                            if(data.cap === false){
+                              console.log(data.cap)
+                              $("#make_captain").prop("disabled", true)
+                            }
+                          }
+                    }
+                  });
+        }
+        function populateSelect(data, value, idname){
+          let selectHTML;
+          let playerData = data[`${value}`]
+          selectHTML += `<option value="${playerData.name}" data-id="${playerData.id}" selected> ${playerData.name}</option>`; 
+          document.getElementById(`${idname}`).innerHTML = selectHTML;
+        }
+        function populatePlayerData(data, value){
+          let playerData = data[`${value}`]
+          $('#playerName').text(playerData.name)
+          $('#gw_points').text(playerData.sfl_gw_point)
+          $('#total_points').text(playerData.sfl_total_points)
+        }
+        function player(event){
+            if($(event).attr("value") == "ATT"){
+              currentPlayer = $(event).children('span')
+              currentPosition = 'att'
+              document.getElementById("modaltitle").innerHTML = "Substitute Foward";
+              populatePlayerData(fpldata, $(currentPlayer).attr("name"))
+              populateSelect(fpldata, 'att_bench', 'modalselect')
+            }
+            if($(event).attr("value") == "MID"){
+              currentPlayer = $(event).children('span')
+              currentPosition = 'mid'
+              document.getElementById("modaltitle").innerHTML = "Substitute MidFielder";
+              populatePlayerData(fpldata, $(currentPlayer).attr("name"))
+              populateSelect(fpldata, 'mid_bench', 'modalselect')
+            }
+            if($(event).attr("value") == "DEF"){
+              currentPlayer = $(event).children('span')
+              currentPosition = 'def'
+              document.getElementById("modaltitle").innerHTML = "Substitute Defender";
+              populatePlayerData(fpldata, $(currentPlayer).attr("name"))
+              populateSelect(fpldata, 'def_bench', 'modalselect')
+            }
+            if($(event).attr("value") == "GKP"){
+              currentPlayer = $(event).children('span')
+              currentPosition = 'gkp'
+              document.getElementById("modaltitle").innerHTML = "Substitute Goalkeeper";
+              populatePlayerData(fpldata, $(currentPlayer).attr("name"))
+              populateSelect(fpldata, 'gkp_bench', 'modalselect')
+            }
+            $("#myModal").modal("show")
+        }
+        function save(){
+          let playerName = $(currentPlayer[0]).text()
+          let url = `{% url 'fantasy:substitue' 1234 5678 %}`.replace('1234', playerName).replace('5678', currentPosition)
+          $.ajax({
+            method: "GET",
+            url: url,
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data, textStatus, xhr) {
+                            if (xhr.status === 200){
+                          }
+                    }
+            });
+            location.reload()
+          $("#myModal").modal("hide")
+        }
+        function makeCaptain(){
+          let player_name = $(currentPlayer[0]).text();
+          url = `{% url 'fantasy:captain' 1234 %}`.replace('1234', player_name)
+          $.ajax({
+            method: "GET",
+            url: url,
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data, textStatus, xhr) {
+                            if (xhr.status === 200){
+                          }
+                    }
+            });
+            $("#captain").remove()
+            $('<i class="fab fa-cuttlefish" id="captain"></i>').insertAfter(currentPlayer[0])
+            $("#myModal").modal("hide")
+        }
+        getFplData()
+        getFplCap()
+      </script>
+</body>
+
+</html>

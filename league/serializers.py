@@ -70,14 +70,22 @@ class GameweekFixturesSerializer(serializers.ModelSerializer):
         return gameweekfixtures
 
 class PlayerSerializer(serializers.ModelSerializer):
+    team = serializers.SerializerMethodField(read_only=True)
+    position = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = Player
         fields = [
+            'id',
             'name',
             'team',
-            'postion',
+            'position',
             'sfl_price',
             'sfl_gw_point',
             'sfl_total_points',
         ]
+    def get_team(self, obj):
+        return obj.team.name
+    
+    def get_position(self, obj):
+        return obj.position.name
         

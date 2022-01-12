@@ -192,6 +192,38 @@ button {
 
 /*** PLAYERS ***/
 
+.bench {
+  display: flex;
+  grid-column: 1 / -1;
+  grid-row: -31 / -41;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media(min-width : 767.50px) {
+  .bench {
+    padding-left: 15%;
+    padding-right: 15%;
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: -31 / -41;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media(min-width : 1200px) {
+  .bench {
+    padding-left: 25%;
+    padding-right: 25%;
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: -31 / -41;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
 .goalkeeper {
   display: flex;
   grid-column: 1 / -1;

@@ -136,7 +136,6 @@
                 let url = `{% url 'auth:register' %}`
                 let formDATA = $(this).serializeArray()
                 let data = objectifyForm(formDATA)
-				console.log(data)
                 $.ajax({
                     method: "POST",
                     url: url,
@@ -146,7 +145,7 @@
 					data: JSON.stringify(data),
                     success: function (data, textStatus, xhr) {
                       if (xhr.status === 201){
-						  window.location.href = `{% url 'frontend:login' %}`
+						window.location.href = `{% url 'frontend:create_team' %}` 
 					  }
                     },
 					error: function(jqXHR, textStatus, errorThrown){
