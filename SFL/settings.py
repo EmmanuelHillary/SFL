@@ -176,6 +176,8 @@ REST_FRAMEWORK = {
 
 LOGIN_URL= '/login/'
 
+# CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_TIMEZONE = 'Africa/Lagos'
 CELERY_BEAT_SCHEDULE = {
     "scheduled_task":{
         "task": "fantasy.tasks.update_fpl",

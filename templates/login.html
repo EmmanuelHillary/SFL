@@ -141,7 +141,7 @@
 					data: JSON.stringify(data),
                     success: function (data, textStatus, xhr) {
                     if (xhr.status === 200){
-						  window.location.href = `{% url 'frontend:fpl' %}`
+						  window.location.href = `{% url 'frontend:pick_team' %}`
 					  }
                     },
 					error: function(jqXHR, textStatus, errorThrown){
