@@ -41,9 +41,9 @@
             <li><a href="{% url 'frontend:schedule' %}">Schedule</a></li>
             <li><a href="{% url 'frontend:result' %}">Results</a></li>
             <li><a href="{% url 'frontend:pick_team' %}">Pick Team</a></li>
-            <li><a href="{% url 'frontend:transfer' %}">Transfers</a></li>
+            <li class="active"><a href="{% url 'frontend:transfer' %}">Transfers</a></li>
             <li><a href="{% url 'frontend:points' %}">Points</a></li>
-            <li class="active"><a href="{% url 'frontend:logout' %}">Logout</a></li>
+            <li><a href="{% url 'frontend:logout' %}">Logout</a></li>
         </ul>
         <div id="mobile-menu-wrap"></div>
     </div>
@@ -67,11 +67,11 @@
                     <div class="col-lg-10">
                         <div class="nav-menu">
                             <ul class="main-menu">
-                                <li class="active"><a href="{% url 'frontend:index' %}">Home</a></li>
+                                <li><a href="{% url 'frontend:index' %}">Home</a></li>
                                 <li><a href="{% url 'frontend:schedule' %}">Fixtures</a></li>
                                 <li><a href="{% url 'frontend:result' %}">Results</a></li>
                                 <li><a href="{% url 'frontend:pick_team' %}">Pick Team</a></li>
-                                <li><a href="{% url 'frontend:transfer' %}">Transfers</a></li>
+                                <li class="active"><a href="{% url 'frontend:transfer' %}">Transfers</a></li>
                                 <li><a href="{% url 'frontend:points' %}">Points</a></li>
                                 <li><a href="{% url 'frontend:logout' %}">Logout</a></li>
                                
@@ -378,28 +378,28 @@
             if($(event).attr("value") == "ATT"){
               currentPlayer = $(event).children('span')
               currentPosition = $(currentPlayer).attr('name')
-              document.getElementById("modaltitle").innerHTML = "Substitute Foward";
+              document.getElementById("modaltitle").innerHTML = "Transfer Forward";
               populatePlayerData(fpldata, $(currentPlayer).attr("name"))
               populateSelect(select_team_data, 'att', 'modalselect')
             }
             if($(event).attr("value") == "MID"){
               currentPlayer = $(event).children('span')
               currentPosition = $(currentPlayer).attr('name')
-              document.getElementById("modaltitle").innerHTML = "Substitute MidFielder";
+              document.getElementById("modaltitle").innerHTML = "Transfer MidFielder";
               populatePlayerData(fpldata, $(currentPlayer).attr("name"))
               populateSelect(select_team_data, 'mid', 'modalselect')
             }
             if($(event).attr("value") == "DEF"){
               currentPlayer = $(event).children('span')
               currentPosition = $(currentPlayer).attr('name')
-              document.getElementById("modaltitle").innerHTML = "Substitute Defender";
+              document.getElementById("modaltitle").innerHTML = "Transfer Defender";
               populatePlayerData(fpldata, $(currentPlayer).attr("name"))
               populateSelect(select_team_data, 'def', 'modalselect')
             }
             if($(event).attr("value") == "GKP"){
               currentPlayer = $(event).children('span')
               currentPosition = $(currentPlayer).attr('name')
-              document.getElementById("modaltitle").innerHTML = "Substitute Goalkeeper";
+              document.getElementById("modaltitle").innerHTML = "Transfer Goalkeeper";
               populatePlayerData(fpldata, $(currentPlayer).attr("name"))
               populateSelect(select_team_data, 'gkp', 'modalselect')
             }

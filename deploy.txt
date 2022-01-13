@@ -105,17 +105,17 @@ CELERYD_NODES="worker1"
 #CELERYD_NODES=10
 
 # Absolute or relative path to the 'celery' command:
-CELERY_BIN="/home/user/.virtualenvs/venv/bin/celery"
+CELERY_BIN="/home/hillary/app/venv/bin/celery"
 #CELERY_BIN="/virtualenvs/def/bin/celery"
 
 # App instance to use
 # comment out this line if you don't use an app
-CELERY_APP="celery_app_name"
+CELERY_APP="SFL"
 # or fully qualified:
 #CELERY_APP="proj.tasks:app"
 
 # Where to chdir at start.
-CELERYD_CHDIR="/home/user/django-project/"
+CELERYD_CHDIR="/home/hillary/app/src/SFL"
 
 # Extra command-line arguments to the worker
 CELERYD_OPTS="--time-limit=300 --concurrency=8"
