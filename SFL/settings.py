@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_auth',
     'rest_framework.authtoken',
     'django_celery_beat',
+    'django_q',
     
     # local apps
     'authentication',
@@ -176,11 +177,19 @@ REST_FRAMEWORK = {
 
 LOGIN_URL= '/login/'
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
-CELERY_TIMEZONE = 'Africa/Lagos'
-CELERY_BEAT_SCHEDULE = {
-    "scheduled_task":{
-        "task": "fantasy.tasks.update_fpl",
-        "schedule": 5.0,
-    }
+# CELERY_BROKER_URL = 'redis://localhost:6379'
+# CELERY_TIMEZONE = 'Africa/Lagos'
+# CELERY_BEAT_SCHEDULE = {
+#     "scheduled_task":{
+#         "task": "fantasy.tasks.update_fpl",
+#         "schedule": 5.0,
+#     }
+# }
+
+Q_CLUSTER = {
+    "name": "SFL",
+    'retry': 5,
+    'timeout': 2,
+    'workers': 4,
+    "orm": "default",  # Use Django's ORM + database for broker
 }

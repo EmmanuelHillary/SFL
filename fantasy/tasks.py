@@ -1,8 +1,8 @@
 from celery import shared_task
 from .models import UserFPLPick, Captain
 
+# @shared_task
 
-@shared_task
 def update_fpl():
     teams = UserFPLPick.objects.all()
     for i in teams:

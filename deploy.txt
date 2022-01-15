@@ -231,3 +231,11 @@ CELERYBEAT_CHDIR="/home/hillary/app/src/SFL"
 # Extra arguments to celerybeat
 CELERYBEAT_OPTS="--schedule=/var/run/celery/celerybeat-schedule"
 
+
+
+
+Schedule.objects.create(
+    func='fantasy.tasks.update_fpl',
+    minutes=1,
+    repeats=-1
+)
