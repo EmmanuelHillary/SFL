@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from fantasy.models import UserFPLPick
+from django.shortcuts import redirect, get_object_or_404
 
 
 def index(request):
@@ -31,6 +33,9 @@ def create_team(request):
 
 @login_required(login_url='/login/')
 def pick_team(request):
+    user = UserFPLPick.objects.filter(user__user__username=request.user.username)
+    if not user.exists():
+        return redirect("frontend:create_team")
     return render(request, "pick_team.html")
 
 @login_required(login_url='/login/')
