@@ -10,7 +10,6 @@ from league.models import Player
 from rest_framework.response import Response
 from rest_framework import status
 import math
-import schedule
 import time
 
 
