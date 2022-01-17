@@ -308,11 +308,22 @@
             const response = await fetch(url)
             let data = response.json()
             data.then((data) => {
+                let rank_data = data;
+                rank_data.forEach((item, index) => {
+                            item.position = index+1;
+                            if( 0 === index ){
+                                return;
+                            }
+                            let previousItem = rank_data[index-1];
+                            item.position = previousItem.total_points === item.total_points ? previousItem.position : previousItem.position+1;
+                          });
                 let innerHTML = ""
-                data.forEach((i, idx) => {
+                console.log(rank_data)
+                
+                rank_data.forEach((i, idx) => {
                     innerHTML += `
                     <tr>
-                        <td>${idx+1}</td>
+                        <td>${i.position}</td>
                         <td class="team-name">
                             <span>${i.name}</span>
                         </td>
@@ -333,14 +344,23 @@
             let data = response.json()
             data.then((data) => {
                 let innerHTML = ""
-                data.forEach((i, idx) => {
+                let rank_data = data;
+                rank_data.forEach((item, index) => {
+                            item.position = index+1;
+                            if( 0 === index ){
+                                return;
+                            }
+                            let previousItem = rank_data[index-1];
+                            item.position = previousItem.total_goal_scored === item.total_goal_scored ? previousItem.position : previousItem.position+1;
+                          });
+                rank_data.forEach((i, idx) => {
                     if (i.total_goal_scored === 0){
                         return
                     }
                     else{
                         innerHTML += `
                             <tr>
-                                <td>${idx+1}</td>
+                                <td>${i.position}</td>
                                 <td class="team-name">
                                     <span>${i.name}</span>
                                 </td>
@@ -358,16 +378,25 @@
             const response = await fetch(url)
             let data = response.json()
             data.then((data) => {
-                console.log(data)
+                let rank_data = data;
+                rank_data.forEach((item, index) => {
+                            item.position = index+1;
+                            if( 0 === index ){
+                                return;
+                            }
+                            let previousItem = rank_data[index-1];
+                            item.position = previousItem.total_assists === item.total_assists ? previousItem.position : previousItem.position+1;
+                          });
                 let innerHTML = ""
-                data.forEach((i, idx) => {
+                console.log(rank_data)
+                rank_data.forEach((i, idx) => {
                     if (i.total_assists === 0){
                         return
                     }
                     else{
                         innerHTML += `
                             <tr>
-                                <td>${idx+1}</td>
+                                <td>${i.position}</td>
                                 <td class="team-name">
                                     <span>${i.name}</span>
                                 </td>
