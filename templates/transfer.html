@@ -248,7 +248,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="save()">Make Transfer</button>
+                <button type="button" id="transfer" class="btn btn-primary" onclick="save()">Make Transfer</button>
               </div>
             </div>
           </div>
@@ -363,6 +363,23 @@
                     }
                   });
         }
+        function getFplCap(){
+          let url = `{% url 'fantasy:cap' %}`
+          $.ajax({
+                  method: "GET",
+                  url: url,
+                  dataType: "json",
+                  contentType: "application/json",
+                  success: function (data, textStatus, xhr) {
+                            if (xhr.status === 200){
+                            if(data.cap === false){
+                              console.log(data.cap)
+                              $("#transfer").prop("disabled", true)
+                            }
+                          }
+                    }
+                  });
+        }
         function populateSelect(data, value, idname){
           let selectHTML;
           for(let i of data[`${value}`]){
@@ -432,6 +449,7 @@
         }
         getFplData()
         teamData()
+        getFplCap()
       </script>
 </body>
 
