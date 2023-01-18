@@ -1,0 +1,257 @@
+/* Fonts from Google Fonts - more at https://fonts.google.com */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+
+
+
+
+h1 {
+  font-family: "Merriweather", serif;
+  font-size: 32px;
+  text-align: center;
+}
+
+button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.containers {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.formation-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.player-name {
+  background: inherit;
+  color: inherit;
+  font-size: inherit;
+  border: none;
+  text-align: center;
+}
+
+.pitch {
+  background: #228B22;
+  width: 300px;
+  height: 360px;
+  display: grid;
+  grid-template-columns: repeat(100, 1fr);
+  grid-template-rows: repeat(120, 1fr);
+  border: 3px solid white;
+}
+
+.center-circle {
+  background: rgba(255, 255, 255, 0.1);
+  grid-area: 51 / 41 / span 20 / span 20;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.center-line {
+  grid-row: 60 / 61;
+  grid-column: 1 / span 100;
+  border-bottom: 3px solid white;
+}
+
+.corner {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+
+
+
+/* --- TOP HALF --- */
+
+.corner-top-left {
+  grid-area: 1 / 1 / 2 / 2;
+  border-bottom-right-radius: 100px;
+  border: 2px solid white;
+}
+
+.corner-top-right {
+  grid-area: 1 / 100 / 2 / 102;
+  border-bottom-left-radius: 100px;
+  border: 2px solid white;
+}
+
+.six-yard-box-top {
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid white;
+  border-top: 0;
+  grid-column: 41 / span 20 ;
+  grid-row: 1 / 7;
+}
+
+.eighteen-yard-box-top {
+  background: rgba(255, 255, 255, 0.1);
+  grid-column: 29 / span 44;
+  grid-row: 1 / span 18;
+  border: 3px solid white;
+  border-top: 0;
+}
+
+.eighteen-yard-half-circle-top {
+  background: rgba(255, 255, 255, 0.1);
+  grid-column: 43 / 59;
+  grid-row: 19 / span 2;
+  border-radius: 50% / 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom: 3px solid white;
+  border-left:  3px solid white;
+  border-right:  3px solid white;
+}
+
+
+
+/* --- BOTTOM HALF --- */
+
+.corner-bottom-right {
+  grid-area: 120 / 100 / 121 / 101;
+  border-top-left-radius: 100px;
+  border: 2px solid white;
+}
+
+.corner-bottom-left {
+  grid-area: 120 / 1 / 121 / 2;
+  border-top-right-radius: 100px;
+  border: 2px solid white;
+}
+
+.six-yard-box-bottom {
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid white;
+  border-bottom: 0;
+  grid-column: 41 / span 20 ;
+  grid-row: 114 / span 7;
+}
+
+.eighteen-yard-box-bottom {
+  background: rgba(255, 255, 255, 0.1);
+  grid-column: 29 / span 44;
+  grid-row: 103 / span 18;
+  border: 3px solid white;
+  border-bottom: 0;
+}
+
+.eighteen-yard-half-circle-bottom {
+  background: rgba(255, 255, 255, 0.1);
+  grid-column: 43 / 59;
+  grid-row: 101 / span 2;
+  border-radius: 50% / 100%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top: 3px solid white;
+  border-left:  3px solid white;
+  border-right:  3px solid white;
+}
+
+
+
+/* --- ALL TEAMS ---*/
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.player-position {
+  padding: 2px;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  color: white;
+  background: #AE662A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player > input {
+  color: white;
+}
+
+
+/*** PLAYERS ***/
+
+.bench {
+  display: flex;
+  grid-column: 1 / -1;
+  grid-row: -31 / -41;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media(min-width : 767.50px) {
+  .bench {
+    padding-left: 15%;
+    padding-right: 15%;
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: -31 / -41;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media(min-width : 1200px) {
+  .bench {
+    padding-left: 25%;
+    padding-right: 25%;
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: -31 / -41;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.goalkeeper {
+  display: flex;
+  grid-column: 1 / -1;
+  grid-row: -11 / -21;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.defenders {
+  display: flex;
+  grid-column: 1 / -1;
+  grid-row: -31 / -41;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.midfielders {
+  display: flex;
+  grid-column: 1 / -1;
+  grid-row: -61 / -71;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.forwards {
+  display: flex;
+  grid-column: 1 / -1;
+  grid-row: -101 / -111;
+  justify-content: space-around;
+  align-items: center;
+}
