@@ -1,2 +1,2 @@
 web: gunicorn SFL.wsgi
-worker: python manage.py qcluster
+clock: python clock.py
