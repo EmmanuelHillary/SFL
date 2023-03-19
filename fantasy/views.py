@@ -241,11 +241,11 @@ class UserDetails(APIView):
         average_points = math.ceil(total_team_gw_points / total_teams)
         user_gw_points = user.gw_points
         user_total_points = user.total_points
-        highest_points = users_teams.first().gw_points
+        highest_points = UserProfile.objects.all().order_by('-gw_points').first().gw_points
         user_rank = UserProfileSerializer(users_teams, many=True).data 
         data = {
             "average_points" : average_points,
-            "user_gw_points" : user_gw_points,
+            "user_gw_points" : user_gw_points, 
             "highest_points" : highest_points,
             "user_total_points": user_total_points,
             "user_rank" : user_rank,
