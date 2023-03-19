@@ -10,7 +10,7 @@
         <meta name="keywords" content="Specer, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>SEES Sports</title>
+        <title>ULES Sports</title>
     
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
@@ -59,7 +59,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="{% url 'frontend:index' %}"><img src="{% static 'img/logo.png' %}" height="50px" width="50px" alt=""></a>
+                            <a href="{% url 'frontend:index' %}"><img src="{% static 'img/logo.jpg' %}" height="50px" width="50px" alt=""></a>
                             
                         </div>
                     </div>
@@ -146,38 +146,33 @@
             let data = response.json()
             data.then((data) => {
                 let innerHTML = ''
+                console.log(data)
                 for (let i=0; i < data.length; i++){
                     let gameweek = Object.keys(data[i].fixtures)[0]
+                    let innerTable = ''
+                    for(let j=0; j < data[i].fixtures[gameweek].length; j++){
+                        innerTable += `
+                        <tr>
+                        <td class="left-team">
+                            <h4>${data[i].fixtures[gameweek][j].home_team}</h4>
+                        </td>
+                        <td class="st-option">
+                            <div class="so-text">Sport Center, UNILAG</div>
+                            <h4>VS</h4>
+                        </td>
+                        <td class="right-team">
+                            <h4>${data[i].fixtures[gameweek][j].away_team}</h4>
+                        </td>
+                    </tr>
+                        `
+                    }
                     innerHTML += `
                     <div class="schedule-text">
                         <h4 class="st-title">${gameweek}</h4>
                         <div class="st-table">
                             <table>
                                 <tbody>
-                                    <tr>
-                                        <td class="left-team">
-                                            <h4>${data[i].fixtures[gameweek][0].home_team}</h4>
-                                        </td>
-                                        <td class="st-option">
-                                            <div class="so-text">Sport Center, UNILAG</div>
-                                            <h4>VS</h4>
-                                        </td>
-                                        <td class="right-team">
-                                            <h4>${data[i].fixtures[gameweek][0].away_team}</h4>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left-team">
-                                            <h4>${data[i].fixtures[gameweek][1].home_team}</h4>
-                                        </td>
-                                        <td class="st-option">
-                                            <div class="so-text">Sport Center, UNILAG</div>
-                                            <h4>VS</h4>
-                                        </td>
-                                        <td class="right-team">
-                                            <h4>${data[i].fixtures[gameweek][1].away_team}</h4>
-                                        </td>
-                                    </tr>
+                                    ${innerTable}
                                 </tbody>
                             </table>
                         </div>

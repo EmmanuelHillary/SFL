@@ -53,6 +53,7 @@ class GameweekFixtures(models.Model):
     gw = models.ForeignKey(GameweekName, related_name="gameweek", on_delete=models.CASCADE)
     fx1 = models.ForeignKey(Fixture, related_name="fixture_1", on_delete=models.CASCADE)
     fx2 = models.ForeignKey(Fixture, related_name="fixture_2", on_delete=models.CASCADE)
+    fx3 = models.ForeignKey(Fixture, related_name="fixture_3", on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return self.gw.name

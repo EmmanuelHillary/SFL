@@ -10,7 +10,7 @@
     <meta name="keywords" content="Specer, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SEES Sports</title>
+    <title>ULES Sports</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="{% url 'frontend:index' %}"><img src="{% static 'img/logo.png' %}" height="50px" width="50px" alt=""></a>
+                            <a href="{% url 'frontend:index' %}"><img src="{% static 'img/logo.jpg' %}" height="50px" width="50px" alt=""></a>
                             
                         </div>
                     </div>
@@ -105,24 +105,24 @@
                         <h3>SFL <span>Team - {{ request.user.username }}</span></h3>
                     </div>
                     <div class="row mb-4 score-board" style="justify-content: center;">
-                        <div class="card col-xl-2 mr-md-3 mr-sm-2 col-sm-4" style="width: 14rem; border: 1px solid #dd1515;">
+                        <div class="card col-xl-2 mr-md-3 mr-sm-2 col-sm-4" style="width: 14rem; border: 1px solid #2b2f37;">
                             <div class="card-body" style="text-align: center;">
                               <h5 class="card-title"><strong id="latest">Latest Point</strong></h5>
-                              <p class="card-text" id="user_gw_points" style="color: #dd1515; font-size: xx-large;"></p>
+                              <p class="card-text" id="user_gw_points" style="color: #2b2f37; font-size: xx-large;"></p>
                             </div>
                         </div>
-                        <div class="card col-xl-4 mr-md-3 mr-sm-2 col-sm-4 mt-3 mb-3" style="width: 14rem; border: 1px solid #dd1515;">
+                        <div class="card col-xl-4 mr-md-3 mr-sm-2 col-sm-4 mt-3 mb-3" style="width: 14rem; border: 1px solid #2b2f37;">
                             <div class="container-fluid">
                                 <div style="margin-top: 3%;" >
                                     <span style="margin-right: 50%;" class="font">Average points</span><span><strong id="average_points"></strong></span>
                                 </div>
                                 <hr>
                                 <div>
-                                    <span style="margin-right: 50%;" class="font">Highest points</span><span style="color: #dd1515;"><strong id="highest_points"></strong></span>
+                                    <span style="margin-right: 50%;" class="font">Highest points</span><span style="color: #2b2f37;"><strong id="highest_points"></strong></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="card col-xl-4 col-sm-4" style="width: 14rem; border: 1px solid #dd1515; background-color: #dd1515;">
+                        <div class="card col-xl-4 col-sm-4" style="width: 14rem; border: 1px solid #2b2f37; background-color: #2b2f37;">
                           <div class="card-body" style="text-align: center;">
                             <h5 class="card-title"><strong id="latest">Total points</strong></h5>
                             <p class="card-text" id="user_total_points" style="color: white; font-size: xx-large;"></p>
@@ -159,57 +159,57 @@
                     
                             <div class="goalkeeper">
                               <div class="player"  onclick="player(this)" value="GKP" style="cursor: pointer;">
-                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                                 <span  style="text-align: center;" class="create-team" name="gkp"></span>
                               </div>
                             </div>
                     
                             <div class="defenders">
                               <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
-                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                                 <span style="text-align: center;" class="create-team" name="def4"></span>
                               </div>
                               <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
-                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                                 <span style="text-align: center;" class="create-team" name="def3"></span>
                               </div>
                               <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
-                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                                 <span style="text-align: center;" class="create-team" name="def2"></span>
                               </div>
                               <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
-                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                                 <span style="text-align: center;" class="create-team" name="def1"></span>
                               </div>
                             </div>
                     
                             <div class="midfielders">
                               <div class="player" onclick="player(this)" value="MID" style="cursor: pointer;">
-                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                                 <span style="text-align: center;" class="create-team" name="mid3"></span>
                               </div>
                               <div class="player" onclick="player(this)" value="MID" style="cursor: pointer;">
-                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                                 <span style="text-align: center;" class="create-team" name="mid2"></span>
                                 
                               </div>
                               <div class="player"  onclick="player(this)" value="MID" style="cursor: pointer;">
-                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                                 <span style="text-align: center;" class="create-team" name="mid1"></span>
                               </div>
                             </div>
                     
                             <div class="forwards">
                               <div class="player mt-5"  onclick="player(this)" value="ATT" style="cursor: pointer;">
-                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                                 <span style="text-align: center;" class="create-team" name="att3"></span>
                               </div>
                               <div class="player mt-5"  onclick="player(this)" value="ATT" style="cursor: pointer;">
-                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                                 <span style="text-align: center;" class="create-team" name="att2"></span>
                               </div>
                               <div class="player mt-5"  onclick="player(this)" value="ATT" style="cursor: pointer;">
-                                <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                                <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                                 <span style="text-align: center;" class="create-team" name="att1"></span>
                               </div>
                             </div>
@@ -219,19 +219,19 @@
                           </div> <!-- PITCH END-->
                           <div class="bench mt-3">
                             <div class="player" onclick="player(this)" value="ATT" style="cursor: pointer;">
-                              <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                              <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                               <span style="text-align: center;" class="create-team" name="att_bench"></span>
                             </div>
                             <div class="player" onclick="player(this)" value="MID" style="cursor: pointer;">
-                              <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                              <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                               <span style="text-align: center;" class="create-team" name="mid_bench"></span>
                             </div>
                             <div class="player" onclick="player(this)" value="DEF" style="cursor: pointer;">
-                              <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                              <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                               <span style="text-align: center;" class="create-team" name="def_bench"></span>
                             </div>
                             <div class="player" onclick="player(this)" value="GKP"  style="cursor: pointer;">
-                              <i class="fas fa-tshirt fa-2x" style="color: #dd1515;"></i>
+                              <i class="fas fa-tshirt fa-2x" style="color: #2b2f37;"></i>
                               <span style="text-align: center;" class="create-team" name="gkp_bench"></span>
                             </div>
                           </div>

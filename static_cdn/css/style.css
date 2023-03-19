@@ -139,7 +139,7 @@ ol {
 	bottom: 0;
 	height: 3px;
 	width: 70px;
-	background: #dd1515;
+	background: #3159A6;
 	content: "";
 	z-index: 1;
 }
@@ -198,7 +198,7 @@ ol {
 .primary-btn {
 	font-size: 16px;
 	color: #ffffff;
-	background: #dd1515;
+	background: #3159A6;
 	font-weight: 500;
 	letter-spacing: 1px;
 	display: inline-block;
@@ -214,7 +214,7 @@ ol {
 	top: 0;
 	left: 0;
 	z-index: 999999;
-	background: #000;
+	background: #2b2f37;
 }
 
 .loader {
@@ -284,7 +284,7 @@ ol {
 	display: block;
 	height: 100%;
 	padding-top: 30px;
-	background: #323232;
+	background: #2b2f37;
 	text-align: center;
 	cursor: pointer;
 }
@@ -296,7 +296,7 @@ ol {
 	height: 100%;
 	left: 0;
 	top: 0;
-	background: #000;
+	background: #2b2f37;
 	z-index: 99999;
 }
 
@@ -317,7 +317,7 @@ ol {
 	position: absolute;
 	width: 50px;
 	height: 50px;
-	background: #333;
+	background: #2b2f37;
 	color: #fff;
 	text-align: center;
 	border-radius: 50%;
@@ -382,7 +382,7 @@ ol {
 }
 
 .header__nav {
-	background: #dd1515;
+	background: #3159A6;
 }
 
 .header__nav .logo {
@@ -439,7 +439,7 @@ ol {
 }
 
 .header__nav .nav-menu .main-menu li .dropdown li a:hover {
-	color: #dd1515;
+	color: #3159A6;
 }
 
 .header__nav .nav-menu .main-menu li .dropdown li a:after {
@@ -550,7 +550,7 @@ ol {
 	font-size: 20px;
 	color: #ffffff;
 	font-weight: 500;
-	background: #dd1515;
+	background: #3159A6;
 	text-align: right;
 	padding-right: 75px;
 	padding-top: 14px;
@@ -701,7 +701,7 @@ ol {
 
 .soccer-item .si-tag {
 	color: #ffffff;
-	background: #dd1515;
+	background: #3159A6;
 	font-size: 10px;
 	font-weight: 500;
 	display: inline-block;
@@ -791,7 +791,7 @@ ol {
 }
 
 .section-title.latest-title ul li:hover {
-	background: #dd1515;
+	background: #3159A6;
 	color: #ffffff;
 }
 
@@ -808,7 +808,7 @@ ol {
 
 .news-item.left-news .ni-pic .ni-tag {
 	color: #ffffff;
-	background: #dd1515;
+	background: #3159A6;
 	font-size: 10px;
 	font-weight: 500;
 	display: inline-block;
@@ -880,7 +880,7 @@ ol {
 }
 
 .news-item .ni-text ul li i {
-	color: #dd1515;
+	color: #3159A6;
 }
 
 .news-item .ni-text ul li:after {
@@ -1003,9 +1003,9 @@ ol {
 }
 
 .video-slider.owl-carousel .owl-nav button:hover {
-	background: #dd1515;
+	background: #3159A6;
 	color: #ffffff;
-	border-color: #dd1515;
+	border-color: #3159A6;
 }
 
 .video-item {
@@ -1069,7 +1069,7 @@ ol {
 
 .news-item.popular-item .ni-tag {
 	color: #ffffff;
-	background: #dd1515;
+	background: #3159A6;
 	font-size: 10px;
 	font-weight: 500;
 	display: inline-block;
@@ -1249,7 +1249,7 @@ ol {
 
 .fs-logo ul li i {
 	font-size: 16px;
-	color: #dd1515;
+	color: #3159A6;
 	margin-right: 10px;
 	position: absolute;
 	left: 0;
@@ -1277,8 +1277,8 @@ ol {
 }
 
 .fs-logo .fs-social a:hover {
-	background: #dd1515;
-	border-color: #dd1515;
+	background: #3159A6;
+	border-color: #3159A6;
 	color: #ffffff;
 }
 
@@ -1313,7 +1313,7 @@ ol {
 }
 
 .fs-widget .fw-links li a:hover {
-	color: #dd1515;
+	color: #3159A6;
 }
 
 .fs-widget .fw-item {
@@ -1340,7 +1340,7 @@ ol {
 }
 
 .fs-widget .fw-item ul li i {
-	color: #dd1515;
+	color: #3159A6;
 }
 
 .fs-widget .fw-item ul li:after {
@@ -1431,7 +1431,7 @@ ol {
 	font-size: 22px;
 	color: #ffffff;
 	font-weight: 500;
-	background: #dd1515;
+	background: #3159A6;
 	text-align: center;
 	padding: 12px 0 14px;
 	margin-bottom: 30px;
@@ -1505,7 +1505,7 @@ ol {
 }
 
 .schedule-text .st-table table tbody tr td.st-option h4 {
-	color: #dd1515;
+	color: #3159A6;
 	text-transform: uppercase;
 	font-weight: 700;
 	margin-top: 14px;
@@ -1592,7 +1592,7 @@ ol {
 .large-blog .bi-tag {
 	font-size: 12px;
 	color: #ffffff;
-	background: #dd1515;
+	background: #3159A6;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	display: inline-block;
@@ -1695,7 +1695,7 @@ ol {
 }
 
 .blog-items .single-item .bi-text ul li i {
-	color: #dd1515;
+	color: #3159A6;
 }
 
 .blog-items .single-item .bi-text ul li:after {
@@ -1738,9 +1738,9 @@ ol {
 }
 
 .more-blog a:hover {
-	background: #dd1515;
+	background: #3159A6;
 	color: #ffffff;
-	border-color: #dd1515;
+	border-color: #3159A6;
 }
 
 .blog-sidebar .bs-categories {
@@ -1818,7 +1818,7 @@ ol {
 }
 
 .blog-hero-section .bh-text ul li i {
-	color: #dd1515;
+	color: #3159A6;
 }
 
 .blog-hero-section .bh-text ul li:after {
@@ -1958,7 +1958,7 @@ ol {
 
 .bd-text .comment-option .single-comment-item .sc-text span {
 	font-size: 12px;
-	color: #dd1515;
+	color: #3159A6;
 }
 
 .bd-text .comment-option .single-comment-item .sc-text h5 {
@@ -1977,7 +1977,7 @@ ol {
 	display: inline-block;
 	font-size: 12px;
 	text-transform: uppercase;
-	color: #dd1515;
+	color: #3159A6;
 	border: 1px solid #e5e5e5;
 	border-radius: 2px;
 	padding: 4px 26px;
@@ -1994,8 +1994,8 @@ ol {
 }
 
 .bd-text .comment-option .single-comment-item .sc-text .comment-btn:hover {
-	background: #dd1515;
-	border-color: #dd1515;
+	background: #3159A6;
+	border-color: #3159A6;
 	color: #ffffff;
 }
 
@@ -2076,7 +2076,7 @@ ol {
 	color: #ffffff;
 	text-transform: uppercase;
 	font-weight: 500;
-	background: #dd1515;
+	background: #3159A6;
 	border: none;
 	padding: 12px 34px 10px 40px;
 	border-radius: 2px;
@@ -2133,7 +2133,7 @@ ol {
 }
 
 .contact-form form .group-in input:focus {
-	border-color: #dd1515;
+	border-color: #3159A6;
 }
 
 .contact-form form .group-in textarea {
@@ -2154,7 +2154,7 @@ ol {
 }
 
 .contact-form form .group-in textarea:focus {
-	border-color: #dd1515;
+	border-color: #3159A6;
 }
 
 .contact-form form button {
@@ -2162,7 +2162,7 @@ ol {
 	color: #ffffff;
 	text-transform: uppercase;
 	font-weight: 500;
-	background: #dd1515;
+	background: #3159A6;
 	border: none;
 	padding: 12px 34px 10px 40px;
 	letter-spacing: 1px;
@@ -2472,19 +2472,19 @@ ol {
 	}
 	.offcanvas-menu-wrapper .slicknav_menu {
 		padding: 0;
-		background: #222;
+		background: #ffffff;
 	}
 	.offcanvas-menu-wrapper .slicknav_nav {
 		display: block !important;
 	}
 	.offcanvas-menu-wrapper .slicknav_nav a:hover {
 		border-radius: 0;
-		background: #dd1515;
+		background: #3159A6;
 		color: #ffffff;
 	}
 	.offcanvas-menu-wrapper .slicknav_nav .slicknav_row:hover {
 		border-radius: 0;
-		background: #dd1515;
+		background: #3159A6;
 		color: #ffffff;
 	}
 	.offcanvas-menu-wrapper .slicknav_nav .slicknav_row,

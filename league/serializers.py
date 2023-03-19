@@ -65,7 +65,7 @@ class GameweekFixturesSerializer(serializers.ModelSerializer):
         ]
     def get_fixtures(self, obj):
         gameweekfixtures = {}
-        fixtures = [FixtureSerializer(obj.fx1).data, FixtureSerializer(obj.fx2).data]
+        fixtures = [FixtureSerializer(obj.fx1).data, FixtureSerializer(obj.fx2).data, FixtureSerializer(obj.fx3).data]
         gameweekfixtures[obj.gw.name] = fixtures
         return gameweekfixtures
 
