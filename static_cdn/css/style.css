@@ -2472,7 +2472,7 @@ ol {
 	}
 	.offcanvas-menu-wrapper .slicknav_menu {
 		padding: 0;
-		background: #ffffff;
+		background: #000;
 	}
 	.offcanvas-menu-wrapper .slicknav_nav {
 		display: block !important;
@@ -2480,12 +2480,12 @@ ol {
 	.offcanvas-menu-wrapper .slicknav_nav a:hover {
 		border-radius: 0;
 		background: #3159A6;
-		color: #ffffff;
+		color: #000;
 	}
 	.offcanvas-menu-wrapper .slicknav_nav .slicknav_row:hover {
 		border-radius: 0;
 		background: #3159A6;
-		color: #ffffff;
+		color: #000;
 	}
 	.offcanvas-menu-wrapper .slicknav_nav .slicknav_row,
 	.offcanvas-menu-wrapper .slicknav_nav a {
