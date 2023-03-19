@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_auth',
     'rest_framework.authtoken',
     'django_celery_beat',
+    "django_extensions",
     'django_q',
     
     # local apps
