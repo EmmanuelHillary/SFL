@@ -38,6 +38,8 @@ class Player(models.Model):
     total_assists = models.PositiveIntegerField(default=0)
     sfl_price = models.PositiveIntegerField(default=0)
     sfl_gw_point = models.PositiveIntegerField(default=0)
+    sfl_gw_goals = models.PositiveIntegerField(default=0)
+    sfl_gw_assists = models.PositiveIntegerField(default=0)
     sfl_total_points = models.PositiveIntegerField(default=0)
 
     def __str__(self):

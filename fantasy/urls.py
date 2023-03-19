@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (UserFPLCreateAPIView, UserFPLSelectTeam, UserFPLSubTeam, UserFPLTransferTeam, 
-UserFPLViewTeam, GameWeekPoints, MakeCaptain, UserDetails, ChangeGameweek, CapBoolean)
+UserFPLViewTeam, GameWeekPoints, MakeCaptain, UserDetails, ChangeGameweek, CapBoolean, UpdateGWPoints)
 
 app_name="fantasy"
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path('gameweek-points/', GameWeekPoints.as_view(), name="gameweek-points"),
     path('user-points/', UserDetails.as_view(), name="user-points"),
     path('new-gameweek/', ChangeGameweek.as_view(), name="new-gameweek"),
+    path('update-fantasy/', UpdateGWPoints.as_view(), name="update-fantasy")
     path('transfer/<str:player>/<str:position>/', UserFPLTransferTeam.as_view(), name="transfer"),
     path('substitute/<str:player>/<str:position>/', UserFPLSubTeam.as_view(), name="substitue"),
 ]

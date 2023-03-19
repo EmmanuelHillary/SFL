@@ -1,5 +1,7 @@
 from celery import shared_task
 from .models import UserFPLPick, Captain
+import schedule
+import time
 
 # @shared_task
 
@@ -29,4 +31,3 @@ def update_fpl():
         i.user.gw_points = total_gw_points
         i.user.save()
     return None
-

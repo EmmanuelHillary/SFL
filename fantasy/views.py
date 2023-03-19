@@ -266,8 +266,44 @@ class ChangeGameweek(APIView):
         for i in players:
             i.sfl_total_points += i.sfl_gw_point
             i.save()
+            i.total_goal_scored += i.sfl_gw_goals
+            i.save()
+            i.sfl_gw_goals= 0
+            i.save()
+            i.total_assists += i.sfl_gw_assists
+            i.save()
+            i.sfl_gw_assists = 0
+            i.save()
             i.sfl_gw_point = 0
             i.save() 
+        return Response(status=status.HTTP_200_OK)
+    
+class UpdateGWPoints(APIView):
+    def get(self, request, *args, **kwargs):
+        teams = UserFPLPick.objects.all()
+        for i in teams:
+            captain = Captain.objects.get(user=i.user)
+            team = [
+            i.gkp,
+            i.def1, 
+            i.def2,
+            i.def3,
+            i.def4,
+            i.mid1,
+            i.mid2,
+            i.mid3,
+            i.att1,
+            i.att2,
+            i.att3,
+            ]
+            total_gw_points = 0   
+            for j in team:
+                if j == captain.captain:
+                    total_gw_points += j.sfl_gw_point * 2
+                else:
+                    total_gw_points += j.sfl_gw_point
+            i.user.gw_points = total_gw_points
+            i.user.save()
         return Response(status=status.HTTP_200_OK)
 
 class CapBoolean(APIView):
