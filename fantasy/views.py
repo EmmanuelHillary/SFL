@@ -10,7 +10,7 @@ from league.models import Player
 from rest_framework.response import Response
 from rest_framework import status
 import math
-import time
+from rest_framework import permissions
 
 
 class UserFPLCreateAPIView(generics.CreateAPIView):
@@ -253,6 +253,7 @@ class UserDetails(APIView):
         return Response(data, status=status.HTTP_200_OK)
 
 class ChangeGameweek(APIView):
+    permission_classes = [permissions.AllowAny]
     def get(self, request, *args, **kwargs):
         teams = UserFPLPick.objects.all()
         players = Player.objects.all()
@@ -279,6 +280,7 @@ class ChangeGameweek(APIView):
         return Response(status=status.HTTP_200_OK)
     
 class UpdateGWPoints(APIView):
+    permission_classes = [permissions.AllowAny]
     def get(self, request, *args, **kwargs):
         teams = UserFPLPick.objects.all()
         for i in teams:
