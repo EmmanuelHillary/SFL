@@ -27,7 +27,7 @@ SECRET_KEY = 'django-jnsjcnwnicewcbobfuiwehfwef-8jos882)_cz$^$^16co*i$8%nryldg7h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sfantasyleague.herokuapp.com/', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['sfantasyleague.herokuapp.com', 'localhost', '127.0.0.1', 'sfantasyleague.herokuapp.com']
 
 # Application definition
 
