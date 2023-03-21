@@ -397,7 +397,7 @@
             if($(event).attr("value") == "ATT"){
               currentPlayer = $(event).children('span')
               currentPosition = $(currentPlayer).attr('name')
-              document.getElementById("modaltitle").innerHTML = "Transfer Forward";
+              document.getElementById("modaltitle").innerHTML = " Forward";
               populatePlayerData(fpldata, $(currentPlayer).attr("name"))
               populateSelect(select_team_data, 'att', 'modalselect')
             }
