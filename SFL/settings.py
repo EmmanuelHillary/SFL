@@ -98,10 +98,10 @@ WSGI_APPLICATION = 'SFL.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dft45ukfh2mlsa',
-        'USER': 'ramyspltsdauzi',
-        'PASSWORD': '76b8314c6a4c2c7965f26eae4788e684ee69bb442110dcf4149da01694f3c7a2',
-        'HOST': 'ec2-3-208-74-199.compute-1.amazonaws.com',
+        'NAME': 'xhzsiacv',
+        'USER': 'xhzsiacv',
+        'PASSWORD': 'LzLsc9jkg9nICqBNIhopUyeajt37ozK1',
+        'HOST': 'babar.db.elephantsql.com',
         'PORT': '5432',
     }
 }
