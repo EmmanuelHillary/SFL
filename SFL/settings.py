@@ -88,23 +88,23 @@ WSGI_APPLICATION = 'SFL.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': str(os.getenv('DB_NAME')), 
-#         'USER': str(os.getenv('DB_USER')), 
-#         'PASSWORD': str(os.getenv('DB_PASSWORD')),
-#         'HOST': str(os.getenv('DB_HOST')), 
-#         'PORT': str(os.getenv('DB_PORT')),
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dft45ukfh2mlsa',
+        'USER': 'ramyspltsdauzi',
+        'PASSWORD': '76b8314c6a4c2c7965f26eae4788e684ee69bb442110dcf4149da01694f3c7a2',
+        'HOST': 'ec2-3-208-74-199.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 
 REST_FRAMEWORK = {
